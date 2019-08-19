@@ -122,5 +122,23 @@ public class GildedRoseTest {
         assertEquals(30,items[0].quality);
     }
 
+    @Test
+    public void should_return_10_and_25_when_sellin_is_11_and_quality_is_26(){
+        Item item = new Item("Dillon",11,26);
+        Item[] items = new Item[]{item};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        assertEquals(10,items[0].sellIn);
+        assertEquals(25,items[0].quality);
+    }
 
+    @Test
+    public void should_return_negative_6_and_0_when_name_is_Emilio_and_sellin_is_negative_6_and_quality_is_30(){
+        Item item = new Item("dillon",-6,30);
+        Item[] items = new Item[]{item};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        assertEquals(-7,items[0].sellIn);
+        assertEquals(28,items[0].quality);
+    }
 }
