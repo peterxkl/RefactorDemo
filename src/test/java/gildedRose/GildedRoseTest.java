@@ -101,4 +101,26 @@ public class GildedRoseTest {
         assertEquals(-7,items[0].sellIn);
         assertEquals(0,items[0].quality);
     }
+
+    @Test
+    public void should_return_20_and_30_when_name_is_Sulfuras_and_sellin_is_20_and_quality_is_30(){
+        Item item = new Item("Sulfuras, Hand of Ragnaros",20,30);
+        Item[] items = new Item[]{item};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        assertEquals(20,items[0].sellIn);
+        assertEquals(30,items[0].quality);
+    }
+
+    @Test
+    public void should_return_negative_6_and_0_when_name_is_Sulfuras_and_sellin_is_negative_6_and_quality_is_30(){
+        Item item = new Item("Sulfuras, Hand of Ragnaros",-6,30);
+        Item[] items = new Item[]{item};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        assertEquals(-6,items[0].sellIn);
+        assertEquals(30,items[0].quality);
+    }
+
+
 }
